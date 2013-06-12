@@ -198,9 +198,19 @@ class JuegoCorazones(object):
         raise NotImplementedError
 
     def ganadores(self):
-        """Una vez terminado el juego, devuelve la lista de ganadores.
-        Son ganadores todos los jugadores que hayan alcanzado el menor puntaje."""
-        raise NotImplementedError
+        """ Una vez terminado el juego, devuelve la lista de ganadores.
+
+        Son ganadores todos los jugadores que hayan alcanzado el menor
+        puntaje. """
+
+        ganadores = []
+
+        for indice, jugador in enumerate(self.jugadores):
+
+            if min(self.puntajes) == self.puntajes[indice]:
+                ganadores.append(jugador)
+
+        return ganadores
 
     def jugar_mano(self, nro_mano):
         """Realiza las 13 jugadas que corresponden a una mano completa."""
